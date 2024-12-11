@@ -45,4 +45,4 @@ static:
       - VariableB
   validate_description:
     VariableB:
-      - ['price', 'value', 'reward', 'calculated amount']
+      - ['price', 'value', 'reward', 'calculated amount', 'amount']

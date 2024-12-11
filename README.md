@@ -14,6 +14,13 @@ Using ChatGPT for logic vulnerability detection.
 
 2. Run GPTScan
 
+Before start, please select the correct SOLC version, by running the commands:
+
+```shell
+solc-select install 0.8.19 # just an example of 0.8.19
+solc-select use 0.8.19
+```
+
 For example, if the source code is stored in the `/source` directory, run the command:
 
 ```shell
