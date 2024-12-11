@@ -128,6 +128,7 @@ def simple_cli():
         console.log(traceback.format_exc())
         console.log("Compile [bold red]failed[/bold red].")
         console.log("[yellow]Since the compilation is failed, some static analysis tool may not be enabled, which may cause lower precision and recall.[/yellow]")
+        falcon_instance = None
     output_file = parser.parse_args().output
     gptkey = parser.parse_args().gptkey
 
