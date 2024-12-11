@@ -10,6 +10,7 @@ Using ChatGPT for logic vulnerability detection.
 
 - Requires Python 3.10+
 - Install Python dependencies: `pip install -r requirements.txt`
+- Requires Java 17+
 
 2. Run GPTScan
 
@@ -26,8 +27,8 @@ The output results are located at the location specified by the `-o` parameter, 
 ## Supported Project Types
 
 Currently supported project types include:
-- Single file, i.e., a single `.sol` file
-- Multi-file, i.e., a directory with multiple `.sol` files, without any other external dependencies
+- Single file in a folder, i.e., `contract` folder with a single `example.sol` file. Use the path of folder as source (**NOT THE FILE, WHICH MAY CAUSE ERRORS.**)
+- ~~Multi-file, i.e., a directory with multiple `.sol` files, without any other external dependencies~~
 - Common framework projects, such as Truffle, Hardhat, Brownie, etc.
 
 Tested frameworks include:
@@ -36,6 +37,8 @@ Tested frameworks include:
 - Brownie
 
 Note that this project does not include the compilation environment, such as Node.js, which needs to be installed separately.
+
+**NOTE**: Please also make sure that you path do not contain keywords like `external`, `openzeppelin`, `uniswap`, `pancakeswap`, `legacy`, since we are using a naive way to match the path. Find more in `src/antlr4helper/callgraph.py:__parse_all_files`.
 
 ## Dataset
 

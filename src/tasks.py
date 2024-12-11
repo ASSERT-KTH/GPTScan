@@ -95,6 +95,8 @@ def compile_project(abs_path:str):
     #     else:
     #         logger.error(output)
     #         return False
+    if os.path.isfile(abs_path):
+        return falcon.Falcon(abs_path)
     files = os.listdir(abs_path)
     files = list(filter(lambda x: x.endswith(".sol") and os.path.isfile(os.path.join(abs_path,x)), files))
     if len(files) == 1:
