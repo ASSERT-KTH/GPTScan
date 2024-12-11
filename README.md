@@ -38,7 +38,7 @@ Tested frameworks include:
 
 Note that this project does not include the compilation environment, such as Node.js, which needs to be installed separately.
 
-**NOTE**: Please also make sure that you path do not contain keywords like `external`, `openzeppelin`, `uniswap`, `pancakeswap`, `legacy`, since we are using a naive way to match the path. Find more in `src/antlr4helper/callgraph.py:__parse_all_files`.
+**NOTE**: Please also make sure that you path do not contain keywords like `external`, `openzeppelin`, `uniswap`, `pancakeswap`, `legacy`, since we are using a naive way to match the path. Find more in `src/antlr4helper/callgraph.py:__parse_all_files`. It will not have explict error messages, but will cause empty output.
 
 ## Dataset
 
