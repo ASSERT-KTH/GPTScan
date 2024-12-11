@@ -135,9 +135,9 @@ class CallGraph:
                 if continue_flag:
                     continue
                 if file.endswith(".sol"):
-                    if re.search("ERC\\d{2,}.*\\.sol", file):
+                    if re.search("^ERC\\d{2,}.*\\.sol", file):
                         continue
-                    if re.search("BEP\\d{2,}.*\\.sol", file):
+                    if re.search("^BEP\\d{2,}.*\\.sol", file):
                         continue
                     self.files[os.path.abspath(os.path.join(root, file))] = parseString(open(os.path.join(root, file), "r", encoding="utf-8", errors="ignore").read())
 
