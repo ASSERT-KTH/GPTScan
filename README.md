@@ -39,7 +39,8 @@ solc-select use 0.8.19
 For example, if the source code is stored in the `/source` directory, run the command:
 
 ```shell
-python3.10 main.py -s /sourcecode -o /sourcecode/output.json -k OPEN_AI_API_KEY
+cd src
+python3.10 main.py -s ../sourcecode -o ../sourcecode/output.json -k OPEN_AI_API_KEY
 ```
 
 6. ### Check the output
