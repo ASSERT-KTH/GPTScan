@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  gpt-scan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gpt-scan
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash
+    tty: true
