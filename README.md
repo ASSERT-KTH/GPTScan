@@ -4,13 +4,73 @@
 
 Using ChatGPT for logic vulnerability detection.
 
-## How to Use
+## How to Use (Using Docker)
+
+1. ### Build the container,
+```shell
+docker compose build
+```
+
+2. ###  Run the container
+```shell
+docker compose up
+```
+
+3. ### Accessing the container
+
+Open a new terminal and run: 
+```shell
+docker exec -it gpt-scan bash
+```
+
+4. ### Before running the tool
+
+When accessing the container you will start with a bash, there you execute the tools command 
+
+Before start, please select the correct SOLC version, by running the commands:
+
+```shell
+solc-select install 0.8.19 # just an example of 0.8.19
+solc-select use 0.8.19
+```
+
+5. ### Using the tool
+
+For example, if the source code is stored in the `/source` directory, run the command:
+
+```shell
+python3.10 main.py -s /sourcecode -o /sourcecode/output.json -k OPEN_AI_API_KEY
+```
+
+6. ### Check the output
+
+The output results are located at the location specified by the `-o` parameter, in the example above, it is located at `/sourcecode/output.json`.
+
+## Supported Project Types
+
+Currently supported project types include:
+- Single file in a folder, i.e., `contract` folder with a single `example.sol` file. Use the path of folder as source (**NOT THE FILE, WHICH MAY CAUSE ERRORS.**)
+- ~~Multi-file, i.e., a directory with multiple `.sol` files, without any other external dependencies~~
+- Common framework projects, such as Truffle, Hardhat, Brownie, etc.
+
+Tested frameworks include:
+- Hardhad
+- Truffle
+- Brownie
+
+Note that this project does not include the compilation environment, such as Node.js, which needs to be installed separately.
+
+**NOTE**: Please also make sure that you path do not contain keywords like `external`, `openzeppelin`, `uniswap`, `pancakeswap`, `legacy`, since we are using a naive way to match the path. Find more in `src/antlr4helper/callgraph.py:__parse_all_files`. It will not have explict error messages, but will cause empty output.
+
+
+## How to Use (Original Instructions)
 
 1. Install dependencies,
 
 - Requires Python 3.10+
 - Install Python dependencies: `pip install -r requirements.txt`
 - Requires Java 17+
+
 
 2. Run GPTScan
 
